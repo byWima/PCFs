@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<manifest>
+  <control namespace="bywima.power.pcf" constructor="MenuButton" version="0.0.13" display-name-key="MenuButton" description-key="MenuButton description" control-type="virtual" >
+    <!--external-service-usage node declares whether this 3rd party PCF control is using external service or not, if yes, this control will be considered as premium and please also add the external domain it is using.
+    If it is not using any external service, please set the enabled="false" and DO NOT add any domain below. The "enabled" will be false by default.
+    Example1:
+      <external-service-usage enabled="true">
+        <domain>www.Microsoft.com</domain>
+      </external-service-usage>
+    Example2:
+      <external-service-usage enabled="false">
+      </external-service-usage>
+    -->
+    <external-service-usage enabled="false">
+      <!--UNCOMMENT TO ADD EXTERNAL DOMAINS
+      <domain></domain>
+      <domain></domain>
+      -->
+    </external-service-usage>
+    <!-- property node identifies a specific, configurable piece of data that the control expects from CDS -->
+    <property name="text" display-name-key="Text" description-key="Menu Button text" of-type="SingleLine.Text" usage="bound" required="true" />
+    
+    <data-set name="Items" display-name-key="items Dataset">
+      <property-set name="itemName" display-name-key="ItemName" description-key="Name of the item" of-type="SingleLine.Text" usage="bound" required="true" />
+    </data-set>
+    <property name="buttonAppearance" display-name-key="Appearance" description-key="Appearance of the MenuButton. Default: primary" of-type="Enum" usage="input" required="true">
+      <value name="primary" display-name-key="primary" description-key="primary" default="true">primary</value>
+      <value name="secondary" display-name-key="secondary" description-key="secondary">secondary</value>
+      <value name="outline" display-name-key="outline" description-key="outline">outline</value>
+      <value name="subtle" display-name-key="subtle" description-key="subtle">subtle</value>
+      <value name="transparent" display-name-key="transparent" description-key="transparent">transparent</value>
+    </property>
+
+    <property name="buttonSize" display-name-key="Size" description-key="Size of the Button. Default: medium" of-type="Enum" usage="input" required="true">
+      <value name="small" display-name-key="small" description-key="small">small</value>
+      <value name="medium" display-name-key="medium" description-key="medium" default="true">medium</value>
+      <value name="large" display-name-key="large" description-key="large">large</value>
+    </property>
+
+    <property name="shape" display-name-key="Shape" description-key="Shape of the Button. Default: rounded" of-type="Enum" usage="input" required="true">
+      <value name="circular" display-name-key="circular" description-key="circular">circular</value>
+      <value name="rounded" display-name-key="rounded" description-key="rounded" default="true">rounded</value>
+      <value name="square" display-name-key="square" description-key="square">square</value>
+    </property>
+
+    <property name="menuButtonSelected" display-name-key="SelectedMenu" description-key="The selected value" of-type="SingleLine.Text" usage="output" required="false" />
+
+    <!--
+      Property node's of-type attribute can be of-type-group attribute.
+      Example:
+      <type-group name="numbers">
+        <type>Whole.None</type>
+        <type>Currency</type>
+        <type>FP</type>
+        <type>Decimal</type>
+      </type-group>
+      <property name="sampleProperty" display-name-key="Property_Display_Key" description-key="Property_Desc_Key" of-type-group="numbers" usage="bound" required="true" />
+    -->
+    <resources>
+      <code path="index.ts" order="1"/>
+      <platform-library name="React" version="16.14.0" />
+      <platform-library name="Fluent" version="9.46.2" />
+      <!-- UNCOMMENT TO ADD MORE RESOURCES
+      <css path="css/MenuButton.css" order="1" />
+      <resx path="strings/MenuButton.1033.resx" version="1.0.0" />
+      -->
+    </resources>
+    <!-- UNCOMMENT TO ENABLE THE SPECIFIED API
+    <feature-usage>
+      <uses-feature name="Device.captureAudio" required="true" />
+      <uses-feature name="Device.captureImage" required="true" />
+      <uses-feature name="Device.captureVideo" required="true" />
+      <uses-feature name="Device.getBarcodeValue" required="true" />
+      <uses-feature name="Device.getCurrentPosition" required="true" />
+      <uses-feature name="Device.pickFile" required="true" />
+      <uses-feature name="Utility" required="true" />
+      <uses-feature name="WebAPI" required="true" />
+    </feature-usage>
+    -->
+  </control>
+</manifest>
