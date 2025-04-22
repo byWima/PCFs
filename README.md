@@ -2,10 +2,10 @@
 
 ## Requirements
 
-Git
-Node.js
-Power Platform Cli
-Visual Studio Build
+- Git
+- Node.js
+- Power Platform Cli
+- Visual Studio Build
 
 ## How to build first time
 
